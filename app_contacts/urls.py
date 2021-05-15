@@ -7,5 +7,6 @@ from app_contacts import views
 
 app_name = 'app_contacts'
 urlpatterns = [
-    path('', views.main, name='main')
+    path('', views.ListContacts, name='list'),
+    path('new', views.CreateContact, name='new')
 ]
