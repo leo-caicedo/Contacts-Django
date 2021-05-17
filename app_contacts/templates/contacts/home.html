@@ -1,0 +1,30 @@
+{% extends 'contacts/base.html' %}
+{% block content %}
+
+        <section>
+            {% for contact in contacts %}
+            <div class="row">
+                <article class="col s12 m6 l4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator"  src="{{ contact.picture.url }}" alt="" height="260">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title grey-text activator text-darken-4">{{ contact.firstname }} {{ contact.lastname }}<i class="material-icons right">more_vert</i></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">{{ contact.firstname }} {{ contact.lastname }}<i class="material-icons right">close</i> </span>
+                            <p>Phone: {{ contact.phone }}</p>
+                            <p>Email: {{ contact.email }}</p>
+                            <p>Occupation: {{ contact.occupation }}</p>
+                            <p>Create at: {{ contact.created }}</p>
+                            <p>Last modified: {{ contact.modified }}</p>
+                            <a class="waves-effect waves-teal btn-flat teal lighten-5 right" href="{% url 'contacts:update' contact.pk %}">Update</a>
+                            <a class="waves-effect waves-teal btn-flat teal lighten-5 left" href="{% url 'contacts:delete' contact.pk %}">Delete</a>
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+            </section>
+ 
+{% endblock %}

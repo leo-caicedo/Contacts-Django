@@ -12,7 +12,7 @@ from app_contacts.forms import ContactForm
 
 class Home(ListView):
 
-    template_name = 'contacts/base.html'
+    template_name = 'contacts/home.html'
     model = Contact
     context_object_name = 'contacts'
 

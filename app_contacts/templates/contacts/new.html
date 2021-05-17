@@ -1,6 +1,38 @@
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <table>{{ form.as_table }}</table>
-    <button type="submit">Save Contact</button>
-</form>
-<h1><a href="{% url 'contacts:home' %}">Back</a></h1>
+{% extends 'contacts/base.html' %}
+{% block content %}
+
+        {# Main title #}
+        <section class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h1 class="center-align">Create a new contact</h1>
+                </div>
+            </div>
+        </section>
+
+        {# Form #}
+        <div class="row">
+            <div class="col s12">
+                <div class="card-panel">
+                    <div class="row">
+                        <form method="POST" class="col s12" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <table>
+                            {{ form.as_table }}
+                            </table>
+                            <div class="section">
+                                    <div class="col s12 center">
+                                        <button class="btn waves-effect waves-light center-align">Save
+                                            <i class="material-icons right">save</i>
+                                        </button>
+                                    </div>
+                            </div>
+                        </form>
+               </div>
+            </div>
+        </div>
+
+ 
+ 
+ </div>
+{% endblock %}
