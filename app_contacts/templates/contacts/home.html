@@ -1,5 +1,26 @@
 {% extends 'contacts/base.html' %}
 {% block content %}
+    
+       {# Main title #}
+               
+                {% if not contacts %}
+                <div class="container">
+                <div class="row-fluid s12">
+                    <h1 class="center-align">Welcome</h1>
+                    <div class="center">
+                        <i class="medium material-icons">insert_emoticon</i>
+                    </div>
+                </div>
+                </div>
+
+                <h2 class="center-align">You don't have any contacts yet.</h2>
+                <h2 class="center-align">Add new contacts</h2>
+                <div class="center">
+                    <a class="btn-floating btn-large waves-effect waves-light red" href="{% url 'contacts:new' %}"><i class="material-icons">add</i></a>                
+                </div>
+                {% endif %}
+            
+
 
         <section>
             {% for contact in contacts %}
